@@ -64,11 +64,18 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
+    - uses: danielr1996/envsubst-action@1.0.0
+      with:
+        input: task-definition.json
+        output: ecs-task-definition.json
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          STALK_API_TOKEN: ${{ secrets.STALK_API_TOKEN }}
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition: ecs-task-definition.json
         container-name: stalkbot
         image: ${{ steps.build-image.outputs.image }}
 

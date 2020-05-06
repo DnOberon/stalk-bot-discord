@@ -10,6 +10,20 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
+      "environment": [
+        {
+          "name": "DISCORD_BOT_TOKEN",
+          "value": "${DISCORD_BOT_TOKEN}"
+        },
+        {
+          "name": "STALK_API_TOKEN",
+          "value": "${STALK_API_TOKEN}"
+        },
+        {
+          "name": "STALK_API_URL",
+          "value": "https://api.stalk-bot.com"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
