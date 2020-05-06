@@ -66,10 +66,9 @@ jobs:
 
     - name: Env Substitute
       id: env-sub
-      uses: danielr1996/envsubst-action@1.0.0
+      uses: microsoft/variable-substitutions@v1
       with:
-        input: task-definition.json
-        output: ecs-task-definition.json
+        files: task-definition.json
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           STALK_API_TOKEN: ${{ secrets.STALK_API_TOKEN }}
