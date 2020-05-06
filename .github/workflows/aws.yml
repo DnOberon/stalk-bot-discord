@@ -66,7 +66,7 @@ jobs:
 
     - name: Env Substitute
       id: env-sub
-      uses: microsoft/variable-substitutions@v1
+      uses: microsoft/variable-substitution@v1
       with:
         files: task-definition.json
       env:
