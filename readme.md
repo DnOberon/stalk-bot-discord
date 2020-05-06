@@ -1,7 +1,7 @@
 ![stalk](stalkbot.png)
 
 
-Stalk-bot allows you to share your island's turnip prices and invite others to visit at the same time.
+Stalk-bot allows you to share your island's turnip prices and invite others to visit at the same time. Stalk-bot uses the [Stalk-Bot API](https://stalk-bot.com) to provide this service.
 
 Register your island by typing `!stalk-register dodo-code price`.
 Each island is registered for a maximum of 30 minutes. During that time other users of the system will potentially have access to your island via your supplied Dodo code.
