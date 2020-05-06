@@ -69,9 +69,9 @@ jobs:
       uses: microsoft/variable-substitutions@v1
       with:
         files: task-definition.json
-        env:
-          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-          STALK_API_TOKEN: ${{ secrets.STALK_API_TOKEN }}
+      env:
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        STALK_API_TOKEN: ${{ secrets.STALK_API_TOKEN }}
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
