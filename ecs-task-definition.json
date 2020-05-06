@@ -11,18 +11,6 @@
       "linuxParameters": null,
       "cpu": 0,
       "environment": [
-        {
-          "name": "DISCORD_BOT_TOKEN",
-          "value": "NzA3Mzc5MDA3OTk3MzQ1ODAy.XrIAUg.cU3WZ0yYwQsrvjjvVgTGgbVeF5Y"
-        },
-        {
-          "name": "STALK_API_TOKEN",
-          "value": "P4AoD40FrO66fPnsEf3HoNOTsmEa4XA1IqKCDMua"
-        },
-        {
-          "name": "STALK_API_URL",
-          "value": "https://api.stalk-bot.com"
-        }
       ],
       "resourceRequirements": null,
       "ulimits": null,
