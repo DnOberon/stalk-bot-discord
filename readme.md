@@ -8,3 +8,4 @@ Each island is registered for a maximum of 30 minutes. During that time other us
 
 Ask for an island to visit by typing `!stalk-price`.
 
+

@@ -66,7 +66,7 @@ jobs:
 
     - name: Env Substitute
       id: env-sub
-     uses: danielr1996/envsubst-action@1.0.0
+      uses: danielr1996/envsubst-action@1.0.0
       with:
         input: task-definition.json
         output: ecs-task-definition.json
