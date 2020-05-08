@@ -138,6 +138,7 @@ func registerTurnipPrice(islandCode string, price int) error {
 	client := &http.Client{}
 	req, _ := http.NewRequest("POST", os.Getenv("STALK_API_URL"), buf)
 	req.Header.Set("x-api-key", os.Getenv("STALK_API_TOKEN"))
+	req.Header.Set("Content-Type", "application/json")
 
 	resp, err := client.Do(req)
 	if err != nil || resp.StatusCode != 200 {
