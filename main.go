@@ -19,8 +19,8 @@ import (
 )
 
 type IslandPrice struct {
-	IslandCode  string `json:"islandCode"`
-	TurnipPrice int    `json:"turnipPrice"`
+	IslandCode  string `json:"island_code"`
+	TurnipPrice int    `json:"turnip_price"`
 	Error       string `json:"error,omitempty"`
 }
 
