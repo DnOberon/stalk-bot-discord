@@ -142,6 +142,14 @@ func registerTurnipPrice(islandCode string, price int) error {
 
 	resp, err := client.Do(req)
 	if err != nil || resp.StatusCode != 200 {
+		// check for body
+		if resp.Body != nil {
+			err := json.NewDecoder(resp.Body).Decode(&islandPrice)
+			if err == nil {
+				return errors.New(islandPrice.Error)
+			}
+		}
+
 		return errors.New("unable to register island")
 	}
 
