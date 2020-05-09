@@ -86,6 +86,23 @@ func read(s *discordgo.Session, m *discordgo.MessageCreate) {
 		s.ChannelMessageSend(m.ChannelID, "Island successfully registered. Your registration is valid for 30 minutes")
 	}
 
+	if strings.Contains(m.Content, "!stalk-report") {
+		message := strings.Split(m.Content, " ")
+
+		if len(message) < 2 {
+			s.ChannelMessageSend(m.ChannelID, "Oops! Make sure you include the dodo code of the island you're reporting - (!stalk-report DOG827)")
+			return
+		}
+
+		err := reportIsland(message[1])
+		if err != nil {
+			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Error reporting island %s", err.Error()))
+			return
+		}
+
+		s.ChannelMessageSend(m.ChannelID, "Island successfully reported.")
+	}
+
 	if m.Content == "!stalk-help" {
 		s.ChannelMessageSend(m.ChannelID,
 			`Stalk-bot allows you to share your island's turnip prices and invite others to visit at the same time.
@@ -151,6 +168,36 @@ func registerTurnipPrice(islandCode string, price int) error {
 		}
 
 		return errors.New("unable to register island")
+	}
+
+	return nil
+}
+
+func reportIsland(islandCode string) error {
+	islandPrice := IslandPrice{IslandCode: islandCode}
+
+	buf := new(bytes.Buffer)
+	err := json.NewEncoder(buf).Encode(islandPrice)
+	if err != nil {
+		return err
+	}
+
+	client := &http.Client{}
+	req, _ := http.NewRequest("POST", fmt.Sprintf("%s/report", os.Getenv("STALK_API_URL")), buf)
+	req.Header.Set("x-api-key", os.Getenv("STALK_API_TOKEN"))
+	req.Header.Set("Content-Type", "application/json")
+
+	resp, err := client.Do(req)
+	if err != nil || resp.StatusCode != 200 {
+		// check for body
+		if resp.Body != nil {
+			err := json.NewDecoder(resp.Body).Decode(&islandPrice)
+			if err == nil {
+				return errors.New(islandPrice.Error)
+			}
+		}
+
+		return errors.New("unable to report island")
 	}
 
 	return nil

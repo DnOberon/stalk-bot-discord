@@ -26,5 +26,11 @@ Act fast though, each time Stalk-Bot returns each island only a limited number o
 
 <br>
 
+#### `!stalk-report`
+
+This command expects a single argument, an island code e.g `!stalk-report DOG189`. This command allows you to report an island code that's not open, a foul name, or whose host is being unkind or behaving poorly.
+
+<br>
+
 #### `!stalk-help`
 This command will display information on how to use Stalk-Bot
