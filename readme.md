@@ -1,11 +1,30 @@
 ![stalk](stalkbot.png)
 
 
-Stalk-bot allows you to share your island's turnip prices and invite others to visit at the same time. Stalk-bot uses the [Stalk-Bot API](https://stalk-bot.com) to provide this service.
 
-Register your island by typing `!stalk-register dodo-code price`.
-Each island is registered for a maximum of 30 minutes. During that time other users of the system will potentially have access to your island via your supplied Dodo code.
+### Add Stalk-Bot to your Discord server
+Adding Stalk-Bot to your Discord server is easy. Just click [here](https://discord.com/api/oauth2/authorize?client_id=707379007997345802&permissions=2048&scope=bot)! 
 
-Ask for an island to visit by typing `!stalk-price`.
+<br>
 
+### Using Stalk-Bot
+After adding Stalk-Bot use is easy. Type any of these commands while Stalk-Bot is in the same channel 
 
+<br>
+
+#### `!stalk-register`
+Use this command to register your island with Stalk-Bot. The command expects two arguments - a Dodo Code and the current price of turnips on your island. e.g `!stalk-register DOG12 123`
+
+Your island will be available within Stalk-Bot for 30 minutes after registration. Registering with the same code will reset your registration timer. There are no guarantees that anyone will see your island via Stalk-Bot.
+
+<br>
+
+#### `!stalk-price`
+This command will return a Dodo Code and the price of turnips of the island to which the Dodo Code belongs. 
+
+Act fast though, each time Stalk-Bot returns each island only a limited number of times. There are no guarantees that the returned island is open, the system relies on trust in players so please don't abuse it.
+
+<br>
+
+#### `!stalk-help`
+This command will display information on how to use Stalk-Bot
